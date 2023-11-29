@@ -11,7 +11,6 @@ function toggleButton(){
 }
 //passing a joke to the function
 function tellMe(joke) {
-    console.log("tell me:- " , joke);
     VoiceRSS.speech({
         key: '10a1b5893bf74bc19a590e1c268fc879',
         src: joke,
@@ -30,6 +29,7 @@ async function getjokes() {
     const apiURL = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,racist,sexist,explicit'
     try{
       const response = await fetch(apiURL);
+      
       const data = await response.json();
       if(data.setup){
         joke = `${data.setup} ... ${data.delivery}`;
